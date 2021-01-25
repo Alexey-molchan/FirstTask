@@ -4,6 +4,8 @@ import com.epam.task.first.entities.Array;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.List;
+
 public class ArrayLogicTest {
 
     private ArrayLogic arrayLogic = new ArrayLogic();
@@ -338,4 +340,13 @@ public class ArrayLogicTest {
 
         Assert.assertArrayEquals(new int[]{5, -5, 3}, actual);
     }
+
+//    @Test
+//    public void arraysSortWhenPositiveNumbersApplied(){
+//        Array array = new Array(1, 3, 2);
+//
+//        Array actual = (Array) arrayLogic.arraySort(array);
+//
+//        Assert.assertEquals(array, actual);
+//    }
 }

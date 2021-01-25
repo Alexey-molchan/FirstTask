@@ -2,6 +2,7 @@ package com.epam.task.first.logic;
 
 import com.epam.task.first.entities.Array;
 
+import java.util.Collections;
 import java.util.List;
 
 public class ArrayLogic {
@@ -100,5 +101,13 @@ public class ArrayLogic {
         }
 
         return arr;
+    }
+
+    public List<Integer> arraySort(Array array){
+
+        List<Integer> elements =  array.getElements();
+        Collections.sort(elements);
+
+        return elements;
     }
 }

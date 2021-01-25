@@ -2,6 +2,7 @@ package com.epam.task.first.entities;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Array {
@@ -20,4 +21,6 @@ public class Array {
     public List<Integer> getElements(){
         return elements;
     }
+
+
 }
