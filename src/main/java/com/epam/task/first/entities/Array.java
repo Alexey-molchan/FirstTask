@@ -10,7 +10,7 @@ public class Array {
     private final List<Integer> elements;
 
     public Array(Integer... elements){
-        this.elements = new ArrayList<Integer>();
+        this.elements = new ArrayList<>();
         this.elements.addAll(Arrays.asList(elements));
     }
 

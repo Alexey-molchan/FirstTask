@@ -5,7 +5,7 @@ import com.epam.task.first.data.DataExсeption;
 import com.epam.task.first.data.DataReader;
 import com.epam.task.first.entities.Array;
 import com.epam.task.first.creator.ArrayValidator;
-import com.epam.task.first.logic.ArrayLogic;
+import com.epam.task.first.logic.ArraySorter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ public class ArrayCreator {
     private DataReader dataReader;
     private ArrayValidator validator;
     private ArrayParser parser;
-    private ArrayLogic arrayLogic;
+
 
     public ArrayCreator(DataReader dataReader, ArrayValidator validator, ArrayParser parser) {
         this.dataReader = dataReader;
@@ -24,19 +24,34 @@ public class ArrayCreator {
     }
 
 
-    public List<Array> process(String filename) throws DataExсeption {
+//    public List<Array> process(String filename) throws DataExсeption {
+//        ArraySorter sorter = new ArraySorter();
+//
+//        List<Array> col = new ArrayList<>();
+//        List<String> data = dataReader.readData(filename);
+//        for (String s : data) {
+//
+//            if (validator.validate(s)) {
+//                Array arr = parser.create(s);
+//                col.add(sorter.bubbleSort(arr));
+//            }
+//
+//        }
+//        return col;
+//    }
+    public Array process(String filename) throws DataExсeption{
 
-        List<Array> col = new ArrayList<>();
         List<String> data = dataReader.readData(filename);
-        for (String s : data) {
+        String dataLine = "";
 
-            if (validator.validate(s)) {
-                Array arr = parser.create(s);
-                arrayLogic.arraySort(arr);
-                col.add(arr);
+        for (String line : data){
+            if (validator.validate(line)){
+                dataLine += " " + line;
             }
-
         }
-        return col;
+        Array array = parser.create(dataLine);
+        return array;
+
+
     }
 }

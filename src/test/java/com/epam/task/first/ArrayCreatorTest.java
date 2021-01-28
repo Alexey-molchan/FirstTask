@@ -1,4 +1,4 @@
-package com.epam.task.first.logic;
+package com.epam.task.first;
 
 import com.epam.task.first.ArrayCreator;
 import com.epam.task.first.creator.ArrayParser;
@@ -6,6 +6,7 @@ import com.epam.task.first.creator.ArrayValidator;
 import com.epam.task.first.data.DataExсeption;
 import com.epam.task.first.data.DataReader;
 import com.epam.task.first.entities.Array;
+import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 
@@ -17,9 +18,9 @@ import static org.mockito.Mockito.when;
 
 public class ArrayCreatorTest {
 
-    private final static List<String> TEST_DATA = Arrays.asList("1 2 3", "3g 4 6");
-    private final static String TEST_VALIDATION = ("1 2 3");
-//    private final static List<Integer> TEST_PARSER =
+    private final static List<String> TEST_DATA = Arrays.asList("1,2,3", "3,4,6");
+    private final static Array TEST_ARRAY = new Array (1,2,3);
+
 
 
     @Test
@@ -29,12 +30,19 @@ public class ArrayCreatorTest {
         when(reader.readData(anyString())).thenReturn(TEST_DATA);
 
         ArrayValidator validator = Mockito.mock(ArrayValidator.class);
-        when(validator.validate(anyString())).thenReturn(Boolean.valueOf(TEST_VALIDATION));
+        when(validator.validate(anyString())).thenReturn(true);
 
         ArrayParser arrayParser = Mockito.mock(ArrayParser.class);
-//        when(arrayParser.create(anyString())).thenReturn()
+        when(arrayParser.create(anyString())).thenReturn(TEST_ARRAY);
 
-        ArrayCreator director = new ArrayCreator(reader, validator, arrayParser);
+        ArrayCreator arrayCreator = new ArrayCreator(reader, validator, arrayParser);
+
+        Array actualArray = arrayCreator.process("SomeFilePath");
+
+        Assert.assertEquals(TEST_ARRAY, actualArray);
+
+
     }
 
 }
+

@@ -103,11 +103,4 @@ public class ArrayLogic {
         return arr;
     }
 
-    public List<Integer> arraySort(Array array){
-
-        List<Integer> elements =  array.getElements();
-        Collections.sort(elements);
-
-        return elements;
-    }
 }

@@ -1,12 +1,11 @@
 package com.epam.task.first.creator;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ArrayValidator {
 
+
     public boolean validate(String line){
+
         try {
             String[] arrstr = line.split(",");
             if (arrstr.length == 0){

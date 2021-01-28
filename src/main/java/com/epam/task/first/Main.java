@@ -25,10 +25,10 @@ public class Main {
         DataReader reader = new DataReader();
 
         ArrayCreator arrayCreator = new ArrayCreator(reader, arrayValidator, arrayParser);
-        for (Array a : arrayCreator.process("D:\\Example.txt")){
-            printer.print(a);
-            System.out.println(" ");
-        }
+//        for (Array a : arrayCreator.process("D:\\Example.txt")){
+//            printer.print(a);
+//            System.out.println(" ");
+//        }
 
     }
 }
